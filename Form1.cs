@@ -22,6 +22,7 @@ namespace Workshop_App
         private void showOrdersBtn_Click(object sender, EventArgs e)
         {
             newOrderPanel.Visible = false;
+            newClientPanel.Visible = false;
             ordersPanel.Visible = true;
 
             
@@ -66,7 +67,7 @@ namespace Workshop_App
             
             ordersPanel.Visible = false;
             newOrderPanel.Visible = false;
-
+            newClientPanel.Visible = false;
 
         }
 
@@ -76,7 +77,7 @@ namespace Workshop_App
         {
             ordersPanel.Visible = false;
             newOrderPanel.Visible = true;
-
+            newClientPanel.Visible = false;
             
             carOwners = dBController.GetCars_owner();
             
@@ -166,6 +167,27 @@ namespace Workshop_App
         private void employeeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             completeOrderBtn.Enabled = true;
+        }
+
+        private void addNewClientBtn_Click(object sender, EventArgs e)
+        {
+            if(clientNameTB.Text.Equals("")||clientPhoneNumberTB.Text.Equals("")||carNameTB.Text.Equals(""))
+            {
+                MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dBController.AddNewClient(clientNameTB.Text, clientPhoneNumberTB.Text, carNameTB.Text);
+                MessageBox.Show("New client added!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void newClientBtn_Click(object sender, EventArgs e)
+        {
+            newClientPanel.Visible = true;
+            newOrderPanel.Visible = false;
+            ordersPanel.Visible = false;
         }
     }
 }

@@ -134,5 +134,20 @@ namespace Workshop_App.Controller
                 else { return false; }
             }
         }
+
+        public void AddNewClient(string carOwnerName, string carOwnerPhoneNumber, string carName)
+        {
+            using(SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                var carOwners = conn.Query<Car_owner>("SELECT * FROM [Car_owner]");
+                int id = carOwners.Last().Id;
+
+                conn.Execute($"INSERT INTO [Car_owner](name, phone_number) VALUES({carOwnerName}, {carOwnerPhoneNumber}");
+
+                conn.Execute($"INSERT INTO [Car](name, owner_id) VALUES({carName}, {++id})");
+            }
+        }
     }
 }

@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace Workshop_App.Model
 {
-    internal class Car_owner
+    internal class Specializations
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Phone_number { get; set; }
-        public Car_owner() { }
 
-        public Car_owner(int id, string name, string phone_number)
+        public Specializations()  { }
+
+        public Specializations(int id, string name)
         {
             Id = id;
             Name = name;
-            Phone_number = phone_number;
         }
     }
 }

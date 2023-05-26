@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace Workshop_App.Model
 {
-    internal class Car
+    internal class OrderStatus
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int Owner_id { get; set; }
 
-        public Car() { }
+        public string Status { get; set; }
 
-        public Car(int id, string name, int owner_id)
+        public OrderStatus(int id, string status)
         {
             Id = id;
-            Name = name;
-            Owner_id = owner_id;
+            Status = status;
+        }
+        public OrderStatus()
+        {
+            
         }
     }
 }

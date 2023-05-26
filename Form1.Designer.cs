@@ -32,14 +32,6 @@
             this.showOrdersBtn = new System.Windows.Forms.Button();
             this.newOrderButton = new System.Windows.Forms.Button();
             this.newOrderPanel = new System.Windows.Forms.Panel();
-            this.newClientPanel = new System.Windows.Forms.Panel();
-            this.clientPhoneNumberTB = new System.Windows.Forms.TextBox();
-            this.clintPhNumL = new System.Windows.Forms.Label();
-            this.addNewClientBtn = new System.Windows.Forms.Button();
-            this.carNameTB = new System.Windows.Forms.TextBox();
-            this.carNameL = new System.Windows.Forms.Label();
-            this.clientNameL = new System.Windows.Forms.Label();
-            this.clientNameTB = new System.Windows.Forms.TextBox();
             this.completeOrderBtn = new System.Windows.Forms.Button();
             this.employeeCB = new System.Windows.Forms.ComboBox();
             this.employeeL = new System.Windows.Forms.Label();
@@ -49,6 +41,14 @@
             this.carOwnerL = new System.Windows.Forms.Label();
             this.carCB = new System.Windows.Forms.ComboBox();
             this.carOwnerCB = new System.Windows.Forms.ComboBox();
+            this.newClientPanel = new System.Windows.Forms.Panel();
+            this.clientPhoneNumberTB = new System.Windows.Forms.TextBox();
+            this.clintPhNumL = new System.Windows.Forms.Label();
+            this.addNewClientBtn = new System.Windows.Forms.Button();
+            this.carNameTB = new System.Windows.Forms.TextBox();
+            this.carNameL = new System.Windows.Forms.Label();
+            this.clientNameL = new System.Windows.Forms.Label();
+            this.clientNameTB = new System.Windows.Forms.TextBox();
             this.newClientBtn = new System.Windows.Forms.Button();
             this.newOrderPanel.SuspendLayout();
             this.newClientPanel.SuspendLayout();
@@ -86,7 +86,6 @@
             // newOrderPanel
             // 
             this.newOrderPanel.AutoScroll = true;
-            this.newOrderPanel.Controls.Add(this.newClientPanel);
             this.newOrderPanel.Controls.Add(this.completeOrderBtn);
             this.newOrderPanel.Controls.Add(this.employeeCB);
             this.newOrderPanel.Controls.Add(this.employeeL);
@@ -100,83 +99,6 @@
             this.newOrderPanel.Name = "newOrderPanel";
             this.newOrderPanel.Size = new System.Drawing.Size(585, 435);
             this.newOrderPanel.TabIndex = 1;
-            // 
-            // newClientPanel
-            // 
-            this.newClientPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.newClientPanel.Controls.Add(this.clientPhoneNumberTB);
-            this.newClientPanel.Controls.Add(this.clintPhNumL);
-            this.newClientPanel.Controls.Add(this.addNewClientBtn);
-            this.newClientPanel.Controls.Add(this.carNameTB);
-            this.newClientPanel.Controls.Add(this.carNameL);
-            this.newClientPanel.Controls.Add(this.clientNameL);
-            this.newClientPanel.Controls.Add(this.clientNameTB);
-            this.newClientPanel.Location = new System.Drawing.Point(0, -4);
-            this.newClientPanel.Name = "newClientPanel";
-            this.newClientPanel.Size = new System.Drawing.Size(585, 439);
-            this.newClientPanel.TabIndex = 9;
-            this.newClientPanel.Visible = false;
-            // 
-            // clientPhoneNumberTB
-            // 
-            this.clientPhoneNumberTB.Location = new System.Drawing.Point(7, 96);
-            this.clientPhoneNumberTB.Name = "clientPhoneNumberTB";
-            this.clientPhoneNumberTB.Size = new System.Drawing.Size(374, 20);
-            this.clientPhoneNumberTB.TabIndex = 7;
-            // 
-            // clintPhNumL
-            // 
-            this.clintPhNumL.AutoSize = true;
-            this.clintPhNumL.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clintPhNumL.Location = new System.Drawing.Point(7, 74);
-            this.clintPhNumL.Name = "clintPhNumL";
-            this.clintPhNumL.Size = new System.Drawing.Size(283, 19);
-            this.clintPhNumL.TabIndex = 6;
-            this.clintPhNumL.Text = "Enter client phone number (or email)";
-            // 
-            // addNewClientBtn
-            // 
-            this.addNewClientBtn.Location = new System.Drawing.Point(7, 193);
-            this.addNewClientBtn.Name = "addNewClientBtn";
-            this.addNewClientBtn.Size = new System.Drawing.Size(98, 23);
-            this.addNewClientBtn.TabIndex = 5;
-            this.addNewClientBtn.Text = "Add new client";
-            this.addNewClientBtn.UseVisualStyleBackColor = true;
-            this.addNewClientBtn.Click += new System.EventHandler(this.addNewClientBtn_Click);
-            // 
-            // carNameTB
-            // 
-            this.carNameTB.Location = new System.Drawing.Point(7, 157);
-            this.carNameTB.Name = "carNameTB";
-            this.carNameTB.Size = new System.Drawing.Size(374, 20);
-            this.carNameTB.TabIndex = 4;
-            // 
-            // carNameL
-            // 
-            this.carNameL.AutoSize = true;
-            this.carNameL.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carNameL.Location = new System.Drawing.Point(7, 130);
-            this.carNameL.Name = "carNameL";
-            this.carNameL.Size = new System.Drawing.Size(123, 19);
-            this.carNameL.TabIndex = 3;
-            this.carNameL.Text = "Enter car name";
-            // 
-            // clientNameL
-            // 
-            this.clientNameL.AutoSize = true;
-            this.clientNameL.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientNameL.Location = new System.Drawing.Point(7, 8);
-            this.clientNameL.Name = "clientNameL";
-            this.clientNameL.Size = new System.Drawing.Size(138, 19);
-            this.clientNameL.TabIndex = 1;
-            this.clientNameL.Text = "Enter client name";
-            // 
-            // clientNameTB
-            // 
-            this.clientNameTB.Location = new System.Drawing.Point(7, 34);
-            this.clientNameTB.Name = "clientNameTB";
-            this.clientNameTB.Size = new System.Drawing.Size(374, 20);
-            this.clientNameTB.TabIndex = 0;
             // 
             // completeOrderBtn
             // 
@@ -268,6 +190,83 @@
             this.carOwnerCB.TabIndex = 0;
             this.carOwnerCB.SelectedIndexChanged += new System.EventHandler(this.carOwnerCB_SelectedIndexChanged);
             // 
+            // newClientPanel
+            // 
+            this.newClientPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.newClientPanel.Controls.Add(this.clientPhoneNumberTB);
+            this.newClientPanel.Controls.Add(this.clintPhNumL);
+            this.newClientPanel.Controls.Add(this.addNewClientBtn);
+            this.newClientPanel.Controls.Add(this.carNameTB);
+            this.newClientPanel.Controls.Add(this.carNameL);
+            this.newClientPanel.Controls.Add(this.clientNameL);
+            this.newClientPanel.Controls.Add(this.clientNameTB);
+            this.newClientPanel.Location = new System.Drawing.Point(13, 43);
+            this.newClientPanel.Name = "newClientPanel";
+            this.newClientPanel.Size = new System.Drawing.Size(582, 439);
+            this.newClientPanel.TabIndex = 1;
+            this.newClientPanel.Visible = false;
+            // 
+            // clientPhoneNumberTB
+            // 
+            this.clientPhoneNumberTB.Location = new System.Drawing.Point(7, 96);
+            this.clientPhoneNumberTB.Name = "clientPhoneNumberTB";
+            this.clientPhoneNumberTB.Size = new System.Drawing.Size(374, 20);
+            this.clientPhoneNumberTB.TabIndex = 7;
+            // 
+            // clintPhNumL
+            // 
+            this.clintPhNumL.AutoSize = true;
+            this.clintPhNumL.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clintPhNumL.Location = new System.Drawing.Point(7, 74);
+            this.clintPhNumL.Name = "clintPhNumL";
+            this.clintPhNumL.Size = new System.Drawing.Size(204, 19);
+            this.clintPhNumL.TabIndex = 6;
+            this.clintPhNumL.Text = "Enter client phone number";
+            // 
+            // addNewClientBtn
+            // 
+            this.addNewClientBtn.Location = new System.Drawing.Point(7, 193);
+            this.addNewClientBtn.Name = "addNewClientBtn";
+            this.addNewClientBtn.Size = new System.Drawing.Size(98, 23);
+            this.addNewClientBtn.TabIndex = 5;
+            this.addNewClientBtn.Text = "Add new client";
+            this.addNewClientBtn.UseVisualStyleBackColor = true;
+            this.addNewClientBtn.Click += new System.EventHandler(this.addNewClientBtn_Click);
+            // 
+            // carNameTB
+            // 
+            this.carNameTB.Location = new System.Drawing.Point(7, 157);
+            this.carNameTB.Name = "carNameTB";
+            this.carNameTB.Size = new System.Drawing.Size(374, 20);
+            this.carNameTB.TabIndex = 4;
+            // 
+            // carNameL
+            // 
+            this.carNameL.AutoSize = true;
+            this.carNameL.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carNameL.Location = new System.Drawing.Point(7, 130);
+            this.carNameL.Name = "carNameL";
+            this.carNameL.Size = new System.Drawing.Size(123, 19);
+            this.carNameL.TabIndex = 3;
+            this.carNameL.Text = "Enter car name";
+            // 
+            // clientNameL
+            // 
+            this.clientNameL.AutoSize = true;
+            this.clientNameL.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clientNameL.Location = new System.Drawing.Point(7, 8);
+            this.clientNameL.Name = "clientNameL";
+            this.clientNameL.Size = new System.Drawing.Size(138, 19);
+            this.clientNameL.TabIndex = 1;
+            this.clientNameL.Text = "Enter client name";
+            // 
+            // clientNameTB
+            // 
+            this.clientNameTB.Location = new System.Drawing.Point(7, 34);
+            this.clientNameTB.Name = "clientNameTB";
+            this.clientNameTB.Size = new System.Drawing.Size(374, 20);
+            this.clientNameTB.TabIndex = 0;
+            // 
             // newClientBtn
             // 
             this.newClientBtn.Location = new System.Drawing.Point(235, 12);
@@ -283,6 +282,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 494);
+            this.Controls.Add(this.newClientPanel);
             this.Controls.Add(this.newClientBtn);
             this.Controls.Add(this.newOrderPanel);
             this.Controls.Add(this.newOrderButton);

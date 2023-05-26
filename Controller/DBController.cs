@@ -144,9 +144,9 @@ namespace Workshop_App.Controller
                 var carOwners = conn.Query<Car_owner>("SELECT * FROM [Car_owner]");
                 int id = carOwners.Last().Id;
 
-                conn.Execute($"INSERT INTO [Car_owner](name, phone_number) VALUES({carOwnerName}, {carOwnerPhoneNumber}");
+                int rez = conn.Execute($"INSERT INTO [Car_owner](name, phone_number) VALUES('{carOwnerName}', '{carOwnerPhoneNumber}')");
 
-                conn.Execute($"INSERT INTO [Car](name, owner_id) VALUES({carName}, {++id})");
+                int rez2 = conn.Execute($"INSERT INTO [Car](name, owner_id) VALUES('{carName}', {++id})");
             }
         }
     }

@@ -121,5 +121,18 @@ namespace Workshop_App.Controller
                 return orders;
             }
         }
+
+        public bool AddNewOrder(int carId, int employeeId, int orderId, string currDate)
+        {
+            using(SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                int rez = conn.Execute($"INSERT INTO [Orders](car_id, employee_id, order_id, order_date, order_status_id) VALUES({carId}, {employeeId}, {orderId}, '{currDate}', 1)");
+
+                if (rez > 0) { return true; }
+                else { return false; }
+            }
+        }
     }
 }

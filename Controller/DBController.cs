@@ -149,5 +149,39 @@ namespace Workshop_App.Controller
                 int rez2 = conn.Execute($"INSERT INTO [Car](name, owner_id) VALUES('{carName}', {++id})");
             }
         }
+
+        public void AddNewEmployee(string name, List<int> specs)
+        {
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                var carOwners = conn.Query<Car_owner>("SELECT * FROM [Employe]");
+                int id = carOwners.Last().Id;
+
+                conn.Execute($"INSERT INTO [Employe](name) VALUES('{name}')");
+
+
+                for (int i = 0; i < specs.Count; i++)
+                {
+                    conn.Execute($"INSERT INTO [EmployeeSpecialization](employee_id, specialization_id) VALUES({++id}, {specs[i]+1})");
+
+                }
+            }
+        }
+
+        public void ChangeOrderStatus(string status, int id)
+        {
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+                if (status.Equals("Done"))
+                {
+                    conn.Execute($"UPDATE dbo.[Orders] SET [order_status_id] = 2 WHERE [id] = {id}");
+                }
+                    
+            }
+
+        }
     }
 }

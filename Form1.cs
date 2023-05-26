@@ -21,11 +21,15 @@ namespace Workshop_App
 
         private void showOrdersBtn_Click(object sender, EventArgs e)
         {
+            ordersPanel.Visible = false;
+
             newOrderPanel.Visible = false;
             newClientPanel.Visible = false;
             ordersPanel.Visible = true;
+            newEmployeePanel.Visible = false;
 
-            
+            ordersPanel.Controls.Clear();
+
             orders = dBController.GetOrders();
             cars = dBController.GetCars();
             carOwners = dBController.GetCars_owner();
@@ -50,12 +54,24 @@ namespace Workshop_App
                 }
                 if (sb.Length > 0) sb.Length -= 1;
 
-                OrderControl orderControl = new OrderControl(cars[orders[i].Car_Id - 1].Name, carOwners[cars[orders[i].Car_Id - 1].Owner_id - 1].Name,
-                    carOwners[cars[orders[i].Car_Id - 1].Owner_id - 1].Phone_number, employes[orders[i].Employee_Id - 1].Name, sb.ToString(),
-                    orderTypes.FirstOrDefault(ord => ord.Id.Equals(orders[i].Order_Id)).Price, orders[i].Order_Date, orderStatuses[orders[i].OrderStatus_Id].Status);
+                int n = cars.FirstOrDefault(name => orders[i].Car_Id.Equals(name.Id)).Owner_id;
+
+                int m = employes.FirstOrDefault(name => orders[i].Employee_Id.Equals(name.Id)).Id;
+                
+
+
+                OrderControl orderControl = new OrderControl(cars.FirstOrDefault(name => orders[i].Car_Id.Equals(name.Id)).Name, 
+                    carOwners.FirstOrDefault(name => name.Id.Equals(n)).Name,
+                    carOwners.FirstOrDefault(name => name.Id.Equals(n)).Phone_number, 
+                    employes.FirstOrDefault(name => name.Id.Equals(m)).Name, 
+                    sb.ToString(),
+                    orderTypes.FirstOrDefault(ord => ord.Id.Equals(orders[i].Order_Id)).Price, 
+                    orders[i].Order_Date, orderStatuses[orders[i].Order_Status_Id-1].Status,
+                    orderTypes[orders[i].Order_Id-1].Name, 
+                    orders[i].Id);
                 orderControl.Location = new Point(x, y);
                 ordersPanel.Controls.Add(orderControl);
-
+                                
                 y += orderControl.Height + 5;
 
             }
@@ -68,6 +84,7 @@ namespace Workshop_App
             ordersPanel.Visible = false;
             newOrderPanel.Visible = false;
             newClientPanel.Visible = false;
+            newEmployeePanel.Visible = false;
 
         }
 
@@ -75,13 +92,24 @@ namespace Workshop_App
 
         private void newOrderButton_Click(object sender, EventArgs e)
         {
+            newOrderPanel.Visible = false;
+
             ordersPanel.Visible = false;
             newOrderPanel.Visible = true;
             newClientPanel.Visible = false;
-            
+            newEmployeePanel.Visible = false;
+
+            carOwnerCB.Text = string.Empty;
+            carCB.Text = string.Empty;
+            carCB.Enabled = false;
+            employeeCB.Text = string.Empty;
+            employeeCB.Enabled = false;
+            orderTypeCB.Text = string.Empty;
+            orderTypeCB.Enabled = false;
+
             carOwners = dBController.GetCars_owner();
             
-            
+            carOwnerCB.Items.Clear();
 
             for (int i = 0; i < carOwners.Count; i++)
             {
@@ -89,20 +117,19 @@ namespace Workshop_App
             }
 
            
-
-
-
         }
 
         private void carOwnerCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             cars = dBController.GetCars();
+            carOwners = dBController.GetCars_owner();
 
+            int indx = carOwners.FirstOrDefault(x => x.Name.Equals(carOwnerCB.SelectedItem.ToString())).Id;
             carCB.Items.Clear();
 
             for (int i = 0; i < cars.Count; i++)
             {
-                if (carOwnerCB.SelectedIndex.Equals(cars[i].Owner_id-1))
+                if (indx.Equals(cars[i].Owner_id))
                 {
                     carCB.Items.Add(cars[i].Name);
                 }
@@ -123,6 +150,8 @@ namespace Workshop_App
         {
             orderTypes = dBController.GetOrderTypes();
 
+            orderTypeCB.Items.Clear();
+
             for(int i = 0;i < orderTypes.Count;i++)
             {
                 orderTypeCB.Items.Add(orderTypes[i].Name);
@@ -135,6 +164,8 @@ namespace Workshop_App
         {
             employes = dBController.GetEmployes();
 
+            employeeCB.Items.Clear();
+
             for(int i = 0; i < employes.Count;i++)
             {
                 employeeCB.Items.Add(employes[i].Name);
@@ -145,11 +176,17 @@ namespace Workshop_App
 
         private void completeOrderBtn_Click(object sender, EventArgs e)
         {
+            cars = dBController.GetCars();
 
-            string date = DateTime.Now.ToString("yyyy-MM-dd");
-            
+            string date = odrerDatePicker.Value.ToString();
 
-            if(dBController.AddNewOrder(carCB.SelectedIndex+1, employeeCB.SelectedIndex+1, orderTypeCB.SelectedIndex+1, date))
+            DateTime ordDate = DateTime.Parse(date);
+
+            date = ordDate.ToString("yyyy-MM-dd");
+
+            int indx = cars.FirstOrDefault(c => c.Name.Equals(carCB.SelectedItem.ToString())).Id;
+
+            if(dBController.AddNewOrder(indx, employeeCB.SelectedIndex+1, orderTypeCB.SelectedIndex+1, date))
             {
                 MessageBox.Show("New order added!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information );
                 carCB.Enabled = false;
@@ -185,9 +222,59 @@ namespace Workshop_App
 
         private void newClientBtn_Click(object sender, EventArgs e)
         {
+            newClientPanel.Visible = false;
+
             newClientPanel.Visible = true;
             newOrderPanel.Visible = false;
             ordersPanel.Visible = false;
+            newEmployeePanel.Visible = false;
+        }
+
+        private void newEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            newEmployeePanel.Visible = false;
+
+            newClientPanel.Visible = false;
+            newOrderPanel.Visible = false;
+            ordersPanel.Visible = false;
+            newEmployeePanel.Visible = true;
+
+            choosedSpecs.Clear();
+
+            specializations = dBController.GetSpecializations();
+
+            for (int i = 0; i < specializations.Count; i++)
+            {
+                chooseSpecializationsCB.Items.Add(specializations[i].Name);
+            }
+
+        }
+        List<int> choosedSpecs = new List<int>();
+        private void addSpecializationBtn_Click(object sender, EventArgs e)
+        {
+            if(!choosedSpecs.Any(x => x.Equals(chooseSpecializationsCB.SelectedIndex)))
+            {
+                choosedSpecs.Add(chooseSpecializationsCB.SelectedIndex);
+                choosedSpecsL.Text += $"{chooseSpecializationsCB.Text} ";
+            }
+
+        }
+
+        private void confirmNewEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            if (employeeNameTB.Text.Equals("") || choosedSpecs.Count<=0)
+            {
+                MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dBController.AddNewEmployee(employeeNameTB.Text, choosedSpecs);
+                MessageBox.Show("New employee added!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+
+            choosedSpecs.Clear();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Workshop_App.Model
         public int Car_Id { get; set; }
         public int Employee_Id { get; set; }
         public int Order_Id { get; set; }
-        public int OrderStatus_Id { get; set; }
+        public int Order_Status_Id { get; set; }
         public DateTime Order_Date { get; set; }
 
         public Orders()  {  }
@@ -23,7 +23,7 @@ namespace Workshop_App.Model
             Car_Id = carId;
             Employee_Id = employeeId;
             Order_Id = orderId;
-            OrderStatus_Id = orderStatusId;
+            Order_Status_Id = orderStatusId;
             Order_Date = orderDate;
         }
     }

@@ -35,6 +35,8 @@
             this.priceL = new System.Windows.Forms.Label();
             this.orderDateL = new System.Windows.Forms.Label();
             this.statusL = new System.Windows.Forms.Label();
+            this.orderTypeL = new System.Windows.Forms.Label();
+            this.doneOrderBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // carL
@@ -93,7 +95,7 @@
             this.orderDateL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.orderDateL.AutoSize = true;
             this.orderDateL.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.orderDateL.Location = new System.Drawing.Point(394, 45);
+            this.orderDateL.Location = new System.Drawing.Point(435, 45);
             this.orderDateL.Name = "orderDateL";
             this.orderDateL.Size = new System.Drawing.Size(60, 15);
             this.orderDateL.TabIndex = 5;
@@ -111,11 +113,33 @@
             this.statusL.TabIndex = 6;
             this.statusL.Text = "status";
             // 
+            // orderTypeL
+            // 
+            this.orderTypeL.AutoSize = true;
+            this.orderTypeL.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderTypeL.Location = new System.Drawing.Point(4, 77);
+            this.orderTypeL.Name = "orderTypeL";
+            this.orderTypeL.Size = new System.Drawing.Size(79, 23);
+            this.orderTypeL.TabIndex = 7;
+            this.orderTypeL.Text = "orderType";
+            // 
+            // doneOrderBtn
+            // 
+            this.doneOrderBtn.Location = new System.Drawing.Point(420, 95);
+            this.doneOrderBtn.Name = "doneOrderBtn";
+            this.doneOrderBtn.Size = new System.Drawing.Size(75, 23);
+            this.doneOrderBtn.TabIndex = 8;
+            this.doneOrderBtn.Text = "Done";
+            this.doneOrderBtn.UseVisualStyleBackColor = true;
+            this.doneOrderBtn.Click += new System.EventHandler(this.doneOrderBtn_Click);
+            // 
             // OrderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.doneOrderBtn);
+            this.Controls.Add(this.orderTypeL);
             this.Controls.Add(this.statusL);
             this.Controls.Add(this.orderDateL);
             this.Controls.Add(this.priceL);
@@ -140,5 +164,7 @@
         private System.Windows.Forms.Label priceL;
         private System.Windows.Forms.Label orderDateL;
         private System.Windows.Forms.Label statusL;
+        private System.Windows.Forms.Label orderTypeL;
+        private System.Windows.Forms.Button doneOrderBtn;
     }
 }

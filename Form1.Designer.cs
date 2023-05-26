@@ -50,14 +50,25 @@
             this.clientNameL = new System.Windows.Forms.Label();
             this.clientNameTB = new System.Windows.Forms.TextBox();
             this.newClientBtn = new System.Windows.Forms.Button();
+            this.newEmployeeBtn = new System.Windows.Forms.Button();
+            this.newEmployeePanel = new System.Windows.Forms.Panel();
+            this.confirmNewEmployeeBtn = new System.Windows.Forms.Button();
+            this.choosedSpecsL = new System.Windows.Forms.Label();
+            this.addSpecializationBtn = new System.Windows.Forms.Button();
+            this.chooseSpecializationsCB = new System.Windows.Forms.ComboBox();
+            this.chooseSpecsL = new System.Windows.Forms.Label();
+            this.employeeNameTB = new System.Windows.Forms.TextBox();
+            this.newEmployeeNameL = new System.Windows.Forms.Label();
+            this.odrerDatePicker = new System.Windows.Forms.DateTimePicker();
             this.newOrderPanel.SuspendLayout();
             this.newClientPanel.SuspendLayout();
+            this.newEmployeePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ordersPanel
             // 
             this.ordersPanel.AutoScroll = true;
-            this.ordersPanel.Location = new System.Drawing.Point(13, 47);
+            this.ordersPanel.Location = new System.Drawing.Point(12, 47);
             this.ordersPanel.Name = "ordersPanel";
             this.ordersPanel.Size = new System.Drawing.Size(588, 435);
             this.ordersPanel.TabIndex = 0;
@@ -86,6 +97,7 @@
             // newOrderPanel
             // 
             this.newOrderPanel.AutoScroll = true;
+            this.newOrderPanel.Controls.Add(this.odrerDatePicker);
             this.newOrderPanel.Controls.Add(this.completeOrderBtn);
             this.newOrderPanel.Controls.Add(this.employeeCB);
             this.newOrderPanel.Controls.Add(this.employeeL);
@@ -95,15 +107,15 @@
             this.newOrderPanel.Controls.Add(this.carOwnerL);
             this.newOrderPanel.Controls.Add(this.carCB);
             this.newOrderPanel.Controls.Add(this.carOwnerCB);
-            this.newOrderPanel.Location = new System.Drawing.Point(13, 47);
+            this.newOrderPanel.Location = new System.Drawing.Point(9, 47);
             this.newOrderPanel.Name = "newOrderPanel";
-            this.newOrderPanel.Size = new System.Drawing.Size(585, 435);
+            this.newOrderPanel.Size = new System.Drawing.Size(585, 432);
             this.newOrderPanel.TabIndex = 1;
             // 
             // completeOrderBtn
             // 
             this.completeOrderBtn.Enabled = false;
-            this.completeOrderBtn.Location = new System.Drawing.Point(3, 260);
+            this.completeOrderBtn.Location = new System.Drawing.Point(3, 263);
             this.completeOrderBtn.Name = "completeOrderBtn";
             this.completeOrderBtn.Size = new System.Drawing.Size(115, 23);
             this.completeOrderBtn.TabIndex = 8;
@@ -200,7 +212,7 @@
             this.newClientPanel.Controls.Add(this.carNameL);
             this.newClientPanel.Controls.Add(this.clientNameL);
             this.newClientPanel.Controls.Add(this.clientNameTB);
-            this.newClientPanel.Location = new System.Drawing.Point(13, 43);
+            this.newClientPanel.Location = new System.Drawing.Point(12, 47);
             this.newClientPanel.Name = "newClientPanel";
             this.newClientPanel.Size = new System.Drawing.Size(582, 439);
             this.newClientPanel.TabIndex = 1;
@@ -277,14 +289,112 @@
             this.newClientBtn.UseVisualStyleBackColor = true;
             this.newClientBtn.Click += new System.EventHandler(this.newClientBtn_Click);
             // 
+            // newEmployeeBtn
+            // 
+            this.newEmployeeBtn.Location = new System.Drawing.Point(346, 12);
+            this.newEmployeeBtn.Name = "newEmployeeBtn";
+            this.newEmployeeBtn.Size = new System.Drawing.Size(105, 23);
+            this.newEmployeeBtn.TabIndex = 4;
+            this.newEmployeeBtn.Text = "New Employee";
+            this.newEmployeeBtn.UseVisualStyleBackColor = true;
+            this.newEmployeeBtn.Click += new System.EventHandler(this.newEmployeeBtn_Click);
+            // 
+            // newEmployeePanel
+            // 
+            this.newEmployeePanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.newEmployeePanel.Controls.Add(this.confirmNewEmployeeBtn);
+            this.newEmployeePanel.Controls.Add(this.choosedSpecsL);
+            this.newEmployeePanel.Controls.Add(this.addSpecializationBtn);
+            this.newEmployeePanel.Controls.Add(this.chooseSpecializationsCB);
+            this.newEmployeePanel.Controls.Add(this.chooseSpecsL);
+            this.newEmployeePanel.Controls.Add(this.employeeNameTB);
+            this.newEmployeePanel.Controls.Add(this.newEmployeeNameL);
+            this.newEmployeePanel.Location = new System.Drawing.Point(12, 47);
+            this.newEmployeePanel.Name = "newEmployeePanel";
+            this.newEmployeePanel.Size = new System.Drawing.Size(585, 439);
+            this.newEmployeePanel.TabIndex = 8;
+            // 
+            // confirmNewEmployeeBtn
+            // 
+            this.confirmNewEmployeeBtn.Location = new System.Drawing.Point(14, 183);
+            this.confirmNewEmployeeBtn.Name = "confirmNewEmployeeBtn";
+            this.confirmNewEmployeeBtn.Size = new System.Drawing.Size(75, 23);
+            this.confirmNewEmployeeBtn.TabIndex = 6;
+            this.confirmNewEmployeeBtn.Text = "Confirm";
+            this.confirmNewEmployeeBtn.UseVisualStyleBackColor = true;
+            this.confirmNewEmployeeBtn.Click += new System.EventHandler(this.confirmNewEmployeeBtn_Click);
+            // 
+            // choosedSpecsL
+            // 
+            this.choosedSpecsL.AutoSize = true;
+            this.choosedSpecsL.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.choosedSpecsL.Location = new System.Drawing.Point(14, 130);
+            this.choosedSpecsL.Name = "choosedSpecsL";
+            this.choosedSpecsL.Size = new System.Drawing.Size(0, 29);
+            this.choosedSpecsL.TabIndex = 5;
+            // 
+            // addSpecializationBtn
+            // 
+            this.addSpecializationBtn.Location = new System.Drawing.Point(388, 96);
+            this.addSpecializationBtn.Name = "addSpecializationBtn";
+            this.addSpecializationBtn.Size = new System.Drawing.Size(50, 23);
+            this.addSpecializationBtn.TabIndex = 4;
+            this.addSpecializationBtn.Text = "Add";
+            this.addSpecializationBtn.UseVisualStyleBackColor = true;
+            this.addSpecializationBtn.Click += new System.EventHandler(this.addSpecializationBtn_Click);
+            // 
+            // chooseSpecializationsCB
+            // 
+            this.chooseSpecializationsCB.FormattingEnabled = true;
+            this.chooseSpecializationsCB.Location = new System.Drawing.Point(14, 96);
+            this.chooseSpecializationsCB.Name = "chooseSpecializationsCB";
+            this.chooseSpecializationsCB.Size = new System.Drawing.Size(367, 21);
+            this.chooseSpecializationsCB.TabIndex = 3;
+            // 
+            // chooseSpecsL
+            // 
+            this.chooseSpecsL.AutoSize = true;
+            this.chooseSpecsL.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chooseSpecsL.Location = new System.Drawing.Point(11, 74);
+            this.chooseSpecsL.Name = "chooseSpecsL";
+            this.chooseSpecsL.Size = new System.Drawing.Size(295, 18);
+            this.chooseSpecsL.TabIndex = 2;
+            this.chooseSpecsL.Text = "Choose employee specialization(s)";
+            // 
+            // employeeNameTB
+            // 
+            this.employeeNameTB.Location = new System.Drawing.Point(14, 30);
+            this.employeeNameTB.Name = "employeeNameTB";
+            this.employeeNameTB.Size = new System.Drawing.Size(367, 20);
+            this.employeeNameTB.TabIndex = 1;
+            // 
+            // newEmployeeNameL
+            // 
+            this.newEmployeeNameL.AutoSize = true;
+            this.newEmployeeNameL.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newEmployeeNameL.Location = new System.Drawing.Point(11, 8);
+            this.newEmployeeNameL.Name = "newEmployeeNameL";
+            this.newEmployeeNameL.Size = new System.Drawing.Size(200, 18);
+            this.newEmployeeNameL.TabIndex = 0;
+            this.newEmployeeNameL.Text = "Enter employee\'s name";
+            // 
+            // odrerDatePicker
+            // 
+            this.odrerDatePicker.Location = new System.Drawing.Point(0, 209);
+            this.odrerDatePicker.Name = "odrerDatePicker";
+            this.odrerDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.odrerDatePicker.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 494);
+            this.ClientSize = new System.Drawing.Size(622, 498);
             this.Controls.Add(this.newClientPanel);
-            this.Controls.Add(this.newClientBtn);
+            this.Controls.Add(this.newEmployeePanel);
             this.Controls.Add(this.newOrderPanel);
+            this.Controls.Add(this.newEmployeeBtn);
+            this.Controls.Add(this.newClientBtn);
             this.Controls.Add(this.newOrderButton);
             this.Controls.Add(this.showOrdersBtn);
             this.Controls.Add(this.ordersPanel);
@@ -295,6 +405,8 @@
             this.newOrderPanel.PerformLayout();
             this.newClientPanel.ResumeLayout(false);
             this.newClientPanel.PerformLayout();
+            this.newEmployeePanel.ResumeLayout(false);
+            this.newEmployeePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -323,6 +435,16 @@
         private System.Windows.Forms.Label clientNameL;
         private System.Windows.Forms.TextBox clientNameTB;
         private System.Windows.Forms.Button newClientBtn;
+        private System.Windows.Forms.Panel newEmployeePanel;
+        private System.Windows.Forms.Button confirmNewEmployeeBtn;
+        private System.Windows.Forms.Label choosedSpecsL;
+        private System.Windows.Forms.Button addSpecializationBtn;
+        private System.Windows.Forms.ComboBox chooseSpecializationsCB;
+        private System.Windows.Forms.Label chooseSpecsL;
+        private System.Windows.Forms.TextBox employeeNameTB;
+        private System.Windows.Forms.Label newEmployeeNameL;
+        private System.Windows.Forms.Button newEmployeeBtn;
+        private System.Windows.Forms.DateTimePicker odrerDatePicker;
     }
 }
 
